@@ -1,0 +1,24 @@
+.subMenu {
+  background-color: black;
+  position: relative;
+  width: 117px;
+  height: 92vh;
+  text-align: center;
+  .listIcon {
+    height: 72vh;
+    position: absolute;
+    top: 20vh;
+    .icon {
+      padding: 13px 0;
+    }
+  }
+  .copiryght {
+    width: 150px;
+    font-size: 12px;
+    position: absolute;
+    left: -20%;
+    bottom: 13vh;
+    color: white;
+    transform: rotate(-90deg);
+  }
+}

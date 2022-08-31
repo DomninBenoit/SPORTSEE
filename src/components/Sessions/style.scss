@@ -1,0 +1,17 @@
+.sessions {
+  position: relative;
+  height: 200px;
+  width: 32%;
+  background-color: #ff0000;
+  border-radius: 10px;
+  margin-right: 2%;
+  .legend_text {
+    width: 70%;
+    font-size: 15px;
+    color: white;
+    opacity: 0.5;
+    position: absolute;
+    top: 5%;
+    left: 20px;
+  }
+}

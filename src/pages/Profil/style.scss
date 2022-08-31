@@ -1,0 +1,27 @@
+section {
+  height: 92vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  .hostAndGraph {
+    width: 100%;
+    margin-left: 6%;
+    .graph {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      .left-graph {
+        position: relative;
+        width: 70%;
+        .left-bottom-graph {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+      .right-graph {
+        position: relative;
+        width: 30%;
+      }
+    }
+  }
+}

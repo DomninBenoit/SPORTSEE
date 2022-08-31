@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 8vh;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+  .logo {
+    height: 58px;
+    padding-left: 29px;
+  }
+  .nav {
+    width: 80%;
+    text-align: center;
+  }
+}
