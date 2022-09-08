@@ -14,14 +14,14 @@
     .legend_value {
       position: absolute;
       top: 35%;
-      left: 35%;
+      left: 40%;
       font-weight: bold;
       margin: 0;
       font-size: 26px;
     }
     .legend_texte {
       position: absolute;
-      width: 50%;
+      width: 35%;
       margin: 0;
       top: 53%;
       left: 34%;
@@ -31,9 +31,11 @@
     }
   }
   .graphic_score {
-    position: absolute;
     width: 100%;
     height: 100%;
-    top: 5%;
+    .recharts-pie-sector {
+      stroke-linejoin: round;
+      stroke-width: 9px;
+    }
   }
 }
