@@ -1,4 +1,4 @@
-/src/assets/logo.png
+![logo du site](/src/assets/logo.png)
 
 # Project SportSee
 
@@ -24,17 +24,23 @@ Download this repository
 
 ## Dependencies
 
+```
 • create-react-app
 • react-router-dom
 • recharts
+```
 
 ## IDE
 
+```
 • VsCode
+```
 
 ## Launching the project
 
+```
 1. Fork the repository.
 2. Clone it on your computer
 3. The **yarn** or **npm** command will allow you to install the dependencies.
 4. The **yarn start** or **npm start** command will allow you to run the front-end
+```
