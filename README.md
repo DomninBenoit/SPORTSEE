@@ -1,4 +1,4 @@
-![logo du site](/src/assets/logo.png)
+![logo du site](./src/assets/logo.png)
 
 # Project SportSee
 

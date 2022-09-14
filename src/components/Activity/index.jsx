@@ -32,21 +32,26 @@ const Activity = () => {
     init();
   }, []);
 
-  /** @description Creation of a function to adapt the replacement color
+  /**
+   * @description Creation of a function to adapt the replacement color
    * @param {color} value
-   * @returns Returns the desired color on the texts in the legend
+   * @returns the desired color on the texts in the legend
    */
   const colorLegendText = (value) => {
     return <span className="colorLegendText">{value}</span>;
   };
 
-  const tooltip = (active) => {
-    console.log(userActivity.sessions);
+  /**
+   * @description Customisation tooltip for the graph
+   * @param {active, payload}
+   * @returns value of KG and Kcal in the graph
+   */
+  const tooltip = ({ active, payload }) => {
     if (active) {
       return (
         <div className="tooltip">
-          <p>{userActivity.sessions.kilogram}</p>
-          <p>{userActivity.sessions.calories}</p>
+          <p>{payload[0].value}kg</p>
+          <p>{payload[1].value}Kcal</p>
         </div>
       );
     }
@@ -73,7 +78,7 @@ const Activity = () => {
             tickLine={false}
             axisLine={false}
           />
-          <Tooltip />
+          <Tooltip content={tooltip} />
           <Legend
             verticalAlign="top"
             align="right"
