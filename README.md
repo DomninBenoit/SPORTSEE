@@ -1,3 +1,5 @@
+/src/assets/logo.png
+
 # Project SportSee
 
 SportSee is an application for the coaching
@@ -15,8 +17,10 @@ Download this repository
 
 ## Prerequisite
 
+```
 • nodeJS (v14.18.1)
 • yarn or npm
+```
 
 ## Dependencies
 
