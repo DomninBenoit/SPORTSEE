@@ -41,6 +41,6 @@ Download this repository
 ```
 1. Fork the repository.
 2. Clone it on your computer
-3. The **yarn** or **npm** command will allow you to install the dependencies.
+3. The **yarn install** or **npm install** command will allow you to install the dependencies.
 4. The **yarn start** or **npm start** command will allow you to run the front-end
 ```

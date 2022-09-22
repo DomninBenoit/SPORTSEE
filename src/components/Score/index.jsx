@@ -11,10 +11,16 @@ import React from "react";
 const Score = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const [error, setError] = useState("");
   useEffect(() => {
     async function init() {
-      let response = await getUser(id);
-      setUser(response.data);
+      try {
+        let response = await getUser(id);
+        setUser(response.data);
+        setError("");
+      } catch (error) {
+        setError(error.message);
+      }
     }
     init();
   }, []);
@@ -26,6 +32,13 @@ const Score = () => {
     { name: "score", value: score, stroke: "red" },
   ];
 
+  if (error !== "") {
+    return (
+      <div className="score">
+        <p>{error}</p>
+      </div>
+    );
+  }
   return (
     <div className="score">
       <div className="legend_bloc">

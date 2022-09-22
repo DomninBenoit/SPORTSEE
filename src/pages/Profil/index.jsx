@@ -21,10 +21,16 @@ import Burger from "../../assets/burger.png";
 const Profil = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const [error, setError] = useState("");
   useEffect(() => {
     async function init() {
-      let response = await getUser(id);
-      setUser(response.data);
+      try {
+        let response = await getUser(id);
+        setUser(response.data);
+        setError("");
+      } catch (err) {
+        setError(err.message);
+      }
     }
     init();
   }, []);
@@ -34,45 +40,50 @@ const Profil = () => {
       <Header />
       <section>
         <SubMenu />
-        <div className="hostAndGraph">
-          <Host />
-          <div className="graph">
-            <div className="left-graph">
-              <Activity />
-              <div className="left-bottom-graph">
-                <Sessions />
-                <Performance />
-                <Score />
+        {error !== "" ? (
+          <p>{error}</p>
+        ) : (
+          <div className="hostAndGraph">
+            <Host />
+
+            <div className="graph">
+              <div className="left-graph">
+                <Activity />
+                <div className="left-bottom-graph">
+                  <Sessions />
+                  <Performance />
+                  <Score />
+                </div>
+              </div>
+              <div className="right-graph">
+                <IntakeCounter
+                  name="Calories"
+                  value={user?.keyData?.calorieCount}
+                  measure="kCal"
+                  svg={Fire}
+                />
+                <IntakeCounter
+                  name="Proteines"
+                  value={user?.keyData?.proteinCount}
+                  measure="g"
+                  svg={Chicken}
+                />
+                <IntakeCounter
+                  name="Glucides"
+                  value={user?.keyData?.carbohydrateCount}
+                  measure="g"
+                  svg={Apple}
+                />
+                <IntakeCounter
+                  name="Lipides"
+                  value={user?.keyData?.lipidCount}
+                  measure="g"
+                  svg={Burger}
+                />
               </div>
             </div>
-            <div className="right-graph">
-              <IntakeCounter
-                name="Calories"
-                value={user?.keyData?.calorieCount}
-                measure="kCal"
-                svg={Fire}
-              />
-              <IntakeCounter
-                name="Proteines"
-                value={user?.keyData?.proteinCount}
-                measure="g"
-                svg={Chicken}
-              />
-              <IntakeCounter
-                name="Glucides"
-                value={user?.keyData?.carbohydrateCount}
-                measure="g"
-                svg={Apple}
-              />
-              <IntakeCounter
-                name="Lipides"
-                value={user?.keyData?.lipidCount}
-                measure="g"
-                svg={Burger}
-              />
-            </div>
           </div>
-        </div>
+        )}
       </section>
     </div>
   );

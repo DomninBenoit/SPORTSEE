@@ -4,11 +4,16 @@
  * @returns {object} data
  */
 async function customFetch(url) {
-  const response = await fetch(url);
-  if (response.status !== 200) {
+  try {
+    const response = await fetch(url);
+    console.log(response);
+    if (response.status !== 200) {
+      return new Error("Problème d'accès aux données de l'API");
+    }
+    return response.json();
+  } catch {
     throw new Error("Problème d'accès aux données de l'API");
   }
-  return response.json();
 }
 
 /**

@@ -18,10 +18,16 @@ import "./style.scss";
 const Sessions = () => {
   const { id } = useParams();
   const [userSessions, setUserSessions] = useState({});
+  const [error, setError] = useState("");
   useEffect(() => {
     async function init() {
-      let response = await getUserAverageSessions(id);
-      setUserSessions(response.data);
+      try {
+        let response = await getUserAverageSessions(id);
+        setUserSessions(response.data);
+        setError("");
+      } catch (error) {
+        setError(error.message);
+      }
     }
     init();
   }, []);
@@ -72,6 +78,13 @@ const Sessions = () => {
     );
   }
 
+  if (error !== "") {
+    return (
+      <div className="sessions">
+        <p>{error}</p>
+      </div>
+    );
+  }
   return (
     <div className="sessions">
       <div className="legend_text">Durée moyenne des sessions</div>

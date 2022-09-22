@@ -25,6 +25,7 @@ const Activity = () => {
       try {
         let response = await getUserActivity(id);
         setUserActivity(response.data);
+        setError("");
       } catch (error) {
         setError(error.message);
       }
@@ -57,7 +58,13 @@ const Activity = () => {
     }
     return null;
   };
-
+  if (error !== "") {
+    return (
+      <div className="activity">
+        <p>{error}</p>
+      </div>
+    );
+  }
   return (
     <div className="activity">
       <p className="activityTitle">Activité quotidienne</p>
