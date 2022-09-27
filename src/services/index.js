@@ -6,7 +6,6 @@
 async function customFetch(url) {
   try {
     const response = await fetch(url);
-    console.log(response);
     if (response.status !== 200) {
       return new Error("Problème d'accès aux données de l'API");
     }
